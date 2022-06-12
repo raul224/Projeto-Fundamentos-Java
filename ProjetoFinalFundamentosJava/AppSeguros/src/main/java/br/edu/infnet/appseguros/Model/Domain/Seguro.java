@@ -2,15 +2,15 @@ package br.edu.infnet.appseguros.Model.Domain;
 
 public abstract class Seguro{
     private String numeroContrato;
-    private String Assinatura;
+    private String DataAssinatura;
     private int DiasRestantes;
     private float ValorContrato;
     private float ValorIndenizacao;
     private boolean Ativo;
 
-    public Seguro(String numeroContrato, String assinatura, int diasRestantes, float valorContrato, float valorIndenizacao, boolean ativo) {
+    public Seguro(String numeroContrato, String dataAssinatura, int diasRestantes, float valorContrato, float valorIndenizacao, boolean ativo) {
         this.numeroContrato = numeroContrato;
-        Assinatura = assinatura;
+        DataAssinatura = dataAssinatura;
         DiasRestantes = diasRestantes;
         ValorContrato = valorContrato;
         ValorIndenizacao = valorIndenizacao;
@@ -25,12 +25,12 @@ public abstract class Seguro{
         this.numeroContrato = numeroContrato;
     }
 
-    public String getAssinatura() {
-        return Assinatura;
+    public String getDataAssinatura() {
+        return DataAssinatura;
     }
 
-    public void setAssinatura(String assinatura) {
-        Assinatura = assinatura;
+    public void setDataAssinatura(String dataAssinatura) {
+        DataAssinatura = dataAssinatura;
     }
 
     public int getDiasRestantes() {
@@ -69,7 +69,7 @@ public abstract class Seguro{
         StringBuilder sb = new StringBuilder();
         sb.append(numeroContrato);
         sb.append(";");
-        sb.append(Assinatura);
+        sb.append(DataAssinatura);
         sb.append(";");
         sb.append(DiasRestantes);
         sb.append(";");

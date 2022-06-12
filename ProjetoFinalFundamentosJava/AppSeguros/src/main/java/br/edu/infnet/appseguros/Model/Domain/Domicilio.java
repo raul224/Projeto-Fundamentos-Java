@@ -5,7 +5,8 @@ public class Domicilio extends Seguro{
     private int MetragemImovel;
     private String CpfProprietario;
 
-    public Domicilio(String numeroContrato, String assinatura, int diasRestantes, float valorContrato, float valorIndenizacao, boolean ativo, String endereco, int metragemImovel, String cpfProprietario) {
+    public Domicilio(String numeroContrato, String assinatura, int diasRestantes, float valorContrato,
+                     float valorIndenizacao, boolean ativo, String endereco, int metragemImovel, String cpfProprietario) {
         super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, ativo);
         this.endereco = endereco;
         MetragemImovel = metragemImovel;
