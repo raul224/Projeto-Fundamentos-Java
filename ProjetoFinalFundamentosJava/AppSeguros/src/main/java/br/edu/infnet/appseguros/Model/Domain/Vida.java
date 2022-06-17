@@ -50,4 +50,14 @@ public class Vida extends Seguro{
 
         return sb.toString();
     }
+    @Override
+    public float CalculaValorReceber() {
+        float valorMes = super.getValorContrato();
+        int diasContrato = super.getDiasRestantes();
+        if(getAnoNascimento() < 2000){
+            return (valorMes/30) * diasContrato;
+        } else {
+            return (valorMes/30) * (diasContrato + 30);
+        }
+    }
 }

@@ -8,5 +8,6 @@ public class VeiculoTeste {
                 20000, true, "XPZ-709", "12094857", "Moto");
 
         System.out.println(veiculo.toString());
+        System.out.println("Valor a receber: " + veiculo.CalculaValorReceber());
     }
 }

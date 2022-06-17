@@ -50,4 +50,15 @@ public class Domicilio extends Seguro{
 
         return sb.toString();
     }
+
+    @Override
+    public float CalculaValorReceber() {
+        float valorMes = super.getValorContrato();
+        int diasContrato = super.getDiasRestantes();
+        if(getMetragemImovel() > 800){
+            return (valorMes/30) * (diasContrato + 30);
+        } else {
+            return (valorMes/30) * diasContrato;
+        }
+    }
 }

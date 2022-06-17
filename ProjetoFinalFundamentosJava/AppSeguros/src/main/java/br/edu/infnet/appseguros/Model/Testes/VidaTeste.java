@@ -8,5 +8,6 @@ public class VidaTeste {
                 20000, true, "18593655742", 1997, "18222720767");
 
         System.out.println(vida.toString());
+        System.out.println("Valor a receber: " + vida.CalculaValorReceber());
     }
 }

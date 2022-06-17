@@ -8,7 +8,8 @@ public abstract class Seguro{
     private float ValorIndenizacao;
     private boolean Ativo;
 
-    public Seguro(String numeroContrato, String dataAssinatura, int diasRestantes, float valorContrato, float valorIndenizacao, boolean ativo) {
+    public Seguro(String numeroContrato, String dataAssinatura, int diasRestantes, float valorContrato,
+                  float valorIndenizacao, boolean ativo) {
         this.numeroContrato = numeroContrato;
         DataAssinatura = dataAssinatura;
         DiasRestantes = diasRestantes;
@@ -21,51 +22,27 @@ public abstract class Seguro{
         return numeroContrato;
     }
 
-    public void setNumeroContrato(String numeroContrato) {
-        this.numeroContrato = numeroContrato;
-    }
-
     public String getDataAssinatura() {
         return DataAssinatura;
-    }
-
-    public void setDataAssinatura(String dataAssinatura) {
-        DataAssinatura = dataAssinatura;
     }
 
     public int getDiasRestantes() {
         return DiasRestantes;
     }
 
-    public void setDiasRestantes(int diasRestantes) {
-        DiasRestantes = diasRestantes;
-    }
-
     public float getValorContrato() {
         return ValorContrato;
-    }
-
-    public void setValorContrato(float valorContrato) {
-        ValorContrato = valorContrato;
     }
 
     public float getValorIndenizacao() {
         return ValorIndenizacao;
     }
 
-    public void setValorIndenizacao(float valorIndenizacao) {
-        ValorIndenizacao = valorIndenizacao;
-    }
-
     public boolean isAtivo() {
         return Ativo;
     }
 
-    public void setAtivo(boolean ativo) {
-        Ativo = ativo;
-    }
-
-    public String toString(){
+    public String DadosSeguro(){
         StringBuilder sb = new StringBuilder();
         sb.append(numeroContrato);
         sb.append(";");
@@ -82,4 +59,5 @@ public abstract class Seguro{
 
         return sb.toString();
     }
+    public abstract float CalculaValorReceber();
 }
