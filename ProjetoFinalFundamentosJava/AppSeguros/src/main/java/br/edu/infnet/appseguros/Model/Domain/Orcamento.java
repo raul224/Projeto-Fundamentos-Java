@@ -1,10 +1,16 @@
 package br.edu.infnet.appseguros.Model.Domain;
-
-
-public class Relatorio {
+public class Orcamento {
     private Corretora corretora;
     private String DataEmissao;
-    private  int numeroRelatorio;
+    private  String cliente;
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
 
     public Corretora getCorretora() {
         return corretora;
@@ -22,15 +28,7 @@ public class Relatorio {
         DataEmissao = dataEmissao;
     }
 
-    public int getNumeroRelatorio() {
-        return numeroRelatorio;
-    }
-
-    public void setNumeroRelatorio(int numeroRelatorio) {
-        this.numeroRelatorio = numeroRelatorio;
-    }
-
     public String toStirng(){
-        return String.format("%s;%s",getDataEmissao(), getNumeroRelatorio());
+        return String.format("%s;%s",getDataEmissao(), getCliente());
     }
 }
