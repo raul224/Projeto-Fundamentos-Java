@@ -23,6 +23,7 @@ public class Cliente {
         return email;
     }
 
+    @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());

@@ -1,8 +1,14 @@
 package br.edu.infnet.appseguros.Model.Domain;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 public class Orcamento {
     private Cliente cliente;
-    private String DataEmissao;
+    private LocalDateTime DataEmissao;
     private int CodigoOrcamento;
+    private List<Seguro> Seguros;
 
     public Cliente getCodigoOrcamento() {
         return cliente;
@@ -20,15 +26,25 @@ public class Orcamento {
         this.cliente = cliente;
     }
 
-    public String getDataEmissao() {
+    public LocalDateTime getDataEmissao() {
         return DataEmissao;
     }
 
-    public void setDataEmissao(String dataEmissao) {
-        DataEmissao = dataEmissao;
+    public List<Seguro> getSeguros() {
+        return Seguros;
     }
 
-    public String toStirng(){
-        return String.format("%s;%s;%s",getDataEmissao(), getCliente(), getCodigoOrcamento());
+    public void setSeguros(List<Seguro> seguros) {
+        Seguros = seguros;
+    }
+
+    public Orcamento(){
+        DataEmissao = LocalDateTime.now();
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return String.format("%s;%s;%s;%d",getDataEmissao().format(dt), getCliente().toString(), getCodigoOrcamento(), getSeguros().size());
     }
 }
