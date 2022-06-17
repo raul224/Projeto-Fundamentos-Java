@@ -1,23 +1,23 @@
 package br.edu.infnet.appseguros.Model.Domain;
 public class Orcamento {
-    private Corretora corretora;
+    private Cliente cliente;
     private String DataEmissao;
-    private  String cliente;
+    private int CodigoOrcamento;
 
-    public String getCliente() {
+    public Cliente getCodigoOrcamento() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCodigoOrcamento(int codigo) {
+        this.CodigoOrcamento = codigo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
-
-    public Corretora getCorretora() {
-        return corretora;
-    }
-
-    public void setCorretora(Corretora corretora) {
-        this.corretora = corretora;
     }
 
     public String getDataEmissao() {
@@ -29,6 +29,6 @@ public class Orcamento {
     }
 
     public String toStirng(){
-        return String.format("%s;%s",getDataEmissao(), getCliente());
+        return String.format("%s;%s;%s",getDataEmissao(), getCliente(), getCodigoOrcamento());
     }
 }
