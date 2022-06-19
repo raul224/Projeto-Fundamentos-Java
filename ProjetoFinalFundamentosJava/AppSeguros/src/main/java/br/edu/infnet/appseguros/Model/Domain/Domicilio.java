@@ -1,5 +1,7 @@
 package br.edu.infnet.appseguros.Model.Domain;
 
+import br.edu.infnet.appseguros.Auxiliar.Constantes;
+
 public class Domicilio extends Seguro{
     private String endereco;
     private int MetragemImovel;
@@ -11,6 +13,11 @@ public class Domicilio extends Seguro{
         this.endereco = endereco;
         MetragemImovel = metragemImovel;
         CpfProprietario = cpfProprietario;
+    }
+
+    public Domicilio(String numeroContrato, String assinatura, int diasRestantes, float valorContrato,
+                     float valorIndenizacao, boolean ativo){
+        super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, ativo);
     }
 
     public String getEndereco() {
@@ -53,12 +60,13 @@ public class Domicilio extends Seguro{
 
     @Override
     public float CalculaValorReceber() {
+        int diaMes = new Constantes().DiasMes;
         float valorMes = super.getValorContrato();
         int diasContrato = super.getDiasRestantes();
         if(getMetragemImovel() > 800){
-            return (valorMes/30) * (diasContrato + 30);
+            return (valorMes/diaMes) * (diasContrato + diaMes);
         } else {
-            return (valorMes/30) * diasContrato;
+            return (valorMes/diaMes) * diasContrato;
         }
     }
 }

@@ -1,5 +1,7 @@
 package br.edu.infnet.appseguros.Model.Domain;
 
+import br.edu.infnet.appseguros.Auxiliar.Constantes;
+
 public class Veiculo extends Seguro{
     private String placa;
     private String CRVL;
@@ -11,6 +13,11 @@ public class Veiculo extends Seguro{
         this.placa = placa;
         this.CRVL = CRVL;
         TipoVeiculo = tipoVeiculo;
+    }
+
+    public Veiculo(String numeroContrato, String assinatura, int diasRestantes, float valorContrato,
+                     float valorIndenizacao, boolean ativo){
+        super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, ativo);
     }
 
     public String getPlaca() {
@@ -53,12 +60,13 @@ public class Veiculo extends Seguro{
 
     @Override
     public float CalculaValorReceber() {
+        int diasMes = new Constantes().DiasMes;
         float valorMes = super.getValorContrato();
         int diasContrato = super.getDiasRestantes();
         if(getTipoVeiculo().equals("moto")){
-            return (valorMes/30) * (diasContrato + 30);
+            return (valorMes/diasMes) * (diasContrato + diasMes);
         } else {
-            return (valorMes/30) * diasContrato;
+            return (valorMes/diasMes) * diasContrato;
         }
     }
 }
