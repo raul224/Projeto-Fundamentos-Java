@@ -1,16 +1,19 @@
 package br.edu.infnet.appseguros.Model.Domain;
 
 import br.edu.infnet.appseguros.Auxiliar.Constantes;
+import br.edu.infnet.appseguros.Exceptions.DomicilioException;
+import br.edu.infnet.appseguros.Exceptions.VeiculoException;
+import br.edu.infnet.appseguros.Exceptions.VidaException;
 
 public class Domicilio extends Seguro{
-    private String endereco;
+    private String Cep;
     private int MetragemImovel;
     private String CpfProprietario;
 
     public Domicilio(String numeroContrato, String assinatura, int diasRestantes, float valorContrato,
-                     float valorIndenizacao, boolean ativo, String endereco, int metragemImovel, String cpfProprietario) {
+                     float valorIndenizacao, boolean ativo, String cep, int metragemImovel, String cpfProprietario) {
         super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, ativo);
-        this.endereco = endereco;
+        Cep = cep;
         MetragemImovel = metragemImovel;
         CpfProprietario = cpfProprietario;
     }
@@ -20,19 +23,27 @@ public class Domicilio extends Seguro{
         super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, ativo);
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getCep() {
+        return Cep;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setCep(String cep) throws Exception{
+        try{
+            Integer.parseInt(cep);
+        } catch(Exception e){
+            throw new DomicilioException("CEP deve ter apenas numeros");
+        }
+        this.Cep = cep;
     }
 
     public int getMetragemImovel() {
         return MetragemImovel;
     }
 
-    public void setMetragemImovel(int metragemImovel) {
+    public void setMetragemImovel(int metragemImovel) throws Exception{
+        if(metragemImovel <= 30){
+            throw new DomicilioException("A residencia precisa ter ao menos 30 metros quadrados");
+        }
         MetragemImovel = metragemImovel;
     }
 
@@ -40,7 +51,12 @@ public class Domicilio extends Seguro{
         return CpfProprietario;
     }
 
-    public void setCpfProprietario(String cpfProprietario) {
+    public void setCpfProprietario(String cpfProprietario) throws Exception{
+        try{
+            Integer.parseInt(cpfProprietario);
+        } catch(Exception e){
+            throw new DomicilioException("CPF deve ter apenas numeros");
+        }
         CpfProprietario = cpfProprietario;
     }
 
@@ -49,7 +65,7 @@ public class Domicilio extends Seguro{
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append(";");
-        sb.append(endereco);
+        sb.append(Cep);
         sb.append(";");
         sb.append(MetragemImovel);
         sb.append(";");
