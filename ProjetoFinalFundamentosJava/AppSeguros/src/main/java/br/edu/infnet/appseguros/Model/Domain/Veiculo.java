@@ -1,6 +1,8 @@
 package br.edu.infnet.appseguros.Model.Domain;
 
 import br.edu.infnet.appseguros.Auxiliar.Constantes;
+import br.edu.infnet.appseguros.Exceptions.VeiculoException;
+import br.edu.infnet.appseguros.Exceptions.VidaException;
 
 public class Veiculo extends Seguro{
     private String placa;
@@ -24,7 +26,10 @@ public class Veiculo extends Seguro{
         return placa;
     }
 
-    public void setPlaca(String placa) {
+    public void setPlaca(String placa) throws Exception{
+        if(placa.length() != 7){
+            throw  new VeiculoException("A placa deve ter apenas 7 digitos");
+        }
         this.placa = placa;
     }
 
@@ -32,7 +37,12 @@ public class Veiculo extends Seguro{
         return CRVL;
     }
 
-    public void setCRVL(String CRVL) {
+    public void setCRVL(String CRVL) throws Exception{
+        try{
+            Integer.parseInt(CRVL);
+        } catch(Exception e){
+            throw new VeiculoException("CRVL deve ter apenas numeros");
+        }
         this.CRVL = CRVL;
     }
 
@@ -40,8 +50,12 @@ public class Veiculo extends Seguro{
         return TipoVeiculo;
     }
 
-    public void setTipoVeiculo(String tipoVeiculo) {
-        TipoVeiculo = tipoVeiculo;
+    public void setTipoVeiculo(String tipoVeiculo) throws Exception {
+        if(tipoVeiculo.equals("moto") || tipoVeiculo.equals("carro")){
+            TipoVeiculo = tipoVeiculo;
+        } else {
+            throw new VeiculoException("Tipo do veiculo deve ser carro ou moto");
+        }
     }
 
     @Override
