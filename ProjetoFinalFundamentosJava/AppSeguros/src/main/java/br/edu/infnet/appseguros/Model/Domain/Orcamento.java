@@ -47,4 +47,12 @@ public class Orcamento {
         DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         return String.format("%s;%s;%s;%d",getDataEmissao().format(dt), getCliente().toString(), getCodigoOrcamento(), getSeguros().size());
     }
+
+    public String obterDadosArquivo() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this);
+        sb.append("\r\n");
+
+        return sb.toString();
+    }
 }

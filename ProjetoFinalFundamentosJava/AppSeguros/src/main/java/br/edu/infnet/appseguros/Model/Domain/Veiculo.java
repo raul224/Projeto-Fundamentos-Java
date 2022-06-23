@@ -18,8 +18,8 @@ public class Veiculo extends Seguro{
     }
 
     public Veiculo(String numeroContrato, String assinatura, int diasRestantes, float valorContrato,
-                     float valorIndenizacao, boolean ativo){
-        super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, ativo);
+                     float valorIndenizacao){
+        super(numeroContrato, assinatura, diasRestantes, valorContrato, valorIndenizacao, true);
     }
 
     public String getPlaca() {

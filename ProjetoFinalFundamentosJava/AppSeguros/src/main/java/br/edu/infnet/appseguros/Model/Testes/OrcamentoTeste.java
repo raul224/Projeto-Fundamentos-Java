@@ -27,6 +27,6 @@ public class OrcamentoTeste {
         orcamento.setCliente(cliente);
         orcamento.setSeguros(seguros);
 
-        System.out.println(orcamento.toString());
+        System.out.println(orcamento);
     }
 }
