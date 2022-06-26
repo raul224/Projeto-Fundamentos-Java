@@ -10,8 +10,8 @@ public class Orcamento {
     private int CodigoOrcamento;
     private List<Seguro> Seguros;
 
-    public Cliente getCodigoOrcamento() {
-        return cliente;
+    public int getCodigoOrcamento() {
+        return CodigoOrcamento;
     }
 
     public void setCodigoOrcamento(int codigo) {
