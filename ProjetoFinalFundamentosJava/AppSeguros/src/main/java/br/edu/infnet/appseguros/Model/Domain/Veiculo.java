@@ -38,9 +38,7 @@ public class Veiculo extends Seguro{
     }
 
     public void setCRVL(String CRVL) throws Exception{
-        try{
-            Integer.parseInt(CRVL);
-        } catch(Exception e){
+        if(!CRVL.matches("[0-9]+")){
             throw new VeiculoException("CRVL deve ter apenas numeros");
         }
         this.CRVL = CRVL;
@@ -51,7 +49,7 @@ public class Veiculo extends Seguro{
     }
 
     public void setTipoVeiculo(String tipoVeiculo) throws Exception {
-        if(tipoVeiculo.equals("moto") || tipoVeiculo.equals("carro")){
+        if(tipoVeiculo.equalsIgnoreCase("moto") || tipoVeiculo.equalsIgnoreCase("carro")){
             TipoVeiculo = tipoVeiculo;
         } else {
             throw new VeiculoException("Tipo do veiculo deve ser carro ou moto");

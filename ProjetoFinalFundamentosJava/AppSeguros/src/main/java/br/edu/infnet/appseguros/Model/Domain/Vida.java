@@ -28,9 +28,7 @@ public class Vida extends Seguro{
     }
 
     public void setCpf(String cpf) throws Exception {
-        try{
-            Integer.parseInt(cpf);
-        } catch(Exception e){
+        if(!cpf.matches("[0-9]+")){
             throw new VidaException("CPF deve ter apenas numeros");
         }
         this.cpf = cpf;
@@ -52,9 +50,7 @@ public class Vida extends Seguro{
     }
 
     public void setCpfBeneficiario(String cpfBeneficiario) throws Exception {
-        try{
-           Integer.parseInt(cpfBeneficiario);
-        } catch(Exception e){
+        if(!cpfBeneficiario.matches("[0-9]+")){
             throw new VidaException("CPF do beneficiario deve ter apenas numeros");
         }
         this.cpfBeneficiario = cpfBeneficiario;

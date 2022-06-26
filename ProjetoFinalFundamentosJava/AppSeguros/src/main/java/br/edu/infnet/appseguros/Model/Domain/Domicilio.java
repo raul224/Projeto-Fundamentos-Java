@@ -28,9 +28,7 @@ public class Domicilio extends Seguro{
     }
 
     public void setCep(String cep) throws Exception{
-        try{
-            Integer.parseInt(cep);
-        } catch(Exception e){
+        if(!cep.matches("[0-9]+")){
             throw new DomicilioException("CEP deve ter apenas numeros");
         }
         this.Cep = cep;
@@ -51,10 +49,8 @@ public class Domicilio extends Seguro{
         return CpfProprietario;
     }
 
-    public void setCpfProprietario(String cpfProprietario) throws Exception{
-        try{
-            Integer.parseInt(cpfProprietario);
-        } catch(Exception e){
+    public void setCpfProprietario(String cpfProprietario) throws Exception {
+        if (!cpfProprietario.matches("[0-9]+")) {
             throw new DomicilioException("CPF deve ter apenas numeros");
         }
         CpfProprietario = cpfProprietario;
